@@ -1,11 +1,18 @@
 from stats import *
+import sys
 
 def main():
-    print("============ BOOKBOT ============\nAnalyzing book found at books/frankenstein.txt...")
+    if not len(sys.argv) == 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
 
-    file = "books/frankenstein.txt"
+    print("============ BOOKBOT ============\nAnalyzing book found at books/frankenstein.txt...")
+    
+    file = sys.argv[1]
+
     wordCount = CountWords(file)
     charDict = CountCharacters(file)
+
     print(f"----------- Word Count ----------\nFound {wordCount} total words")
 
     charList = [] 
@@ -14,7 +21,7 @@ def main():
 
     charList.sort(key=lambda dict: dict["count"], reverse=True)
 
-    print("----------- Word Count ----------")
+    print("----------- Character Count ----------")
     for elem in charList:
         if elem["char"].isalpha():
             print(f"{elem["char"]}: {elem["count"]}")
