@@ -1,2 +1,3 @@
 # bookbot
-Python Project to scan books (or any .txt file) for word- and letter-count. Following boot.dev Project
+
+BookBot is my first [Boot.dev](https://www.boot.dev) project!
